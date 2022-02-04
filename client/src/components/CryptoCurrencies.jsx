@@ -7,6 +7,7 @@ import { tablet, mobile } from "../responsive";
 
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import Loader from "./Loader";
+import Footer from "./Footer";
 
 const PageContainer = styled.div`
     display: flex;
@@ -46,6 +47,7 @@ const Cryptocurrencies = ({ simplified }) => {
                             {cryptos?.map((currency) => (
                                 <CryptoCurrency 
                                     key={currency.uuid}
+                                    id={currency.uuid}
                                     title={`${currency.rank}. ${currency.name}`}
                                     img={currency.iconUrl}
                                     price={millify(currency.price)}
@@ -55,6 +57,7 @@ const Cryptocurrencies = ({ simplified }) => {
                             ))}
                         </Container>
                     </PageContainer>
+                    <Footer />
                 </div>
             )}
 
@@ -62,7 +65,8 @@ const Cryptocurrencies = ({ simplified }) => {
                 <Container>
                     {cryptos?.map((currency) => (
                         <CryptoCurrency 
-                            key={currency.id}
+                            key={currency.uuid}
+                            id={currency.uuid}
                             title={`${currency.rank}. ${currency.name}`}
                             img={currency.iconUrl}
                             price={millify(currency.price)}

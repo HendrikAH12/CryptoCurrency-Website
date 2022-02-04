@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { tablet, mobile } from "../responsive";
+import { desktop1, tablet, mobile } from "../responsive";
 
 const Container = styled.a`
     color: black;
@@ -14,8 +14,9 @@ const Container = styled.a`
     border-radius: 8px;
     gap: 20px;
 
-    max-width: calc(100%);
+    max-width: calc(47% - 16px);
 
+    ${desktop1({ maxWidth: "calc(100%)" })};
     ${tablet({ minWidth: "375px" })};
     ${mobile({ minWidth: "300px" })};
 `;
@@ -29,7 +30,7 @@ const TitleContainer = styled.div`
 const Title = styled.h3`
     font-size: 22px;
     font-weight: 400;
-    padding-right: 15px;
+    margin-right: 32px;
 `;
 
 const Img = styled.img`

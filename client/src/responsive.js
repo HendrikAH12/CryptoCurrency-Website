@@ -16,6 +16,22 @@ export const desktop2 = (props) => {
     `;
 };
 
+export const desktop3 = (props) => {
+    return css`
+        @media only screen and (max-width: 1382px) {
+            ${props}
+        }    
+    `;
+};
+
+export const desktop4 = (props) => {
+    return css`
+        @media only screen and (max-width: 1071px) {
+            ${props}
+        }    
+    `;
+};
+
 export const tablet = (props) => {
     return css`
         @media only screen and (max-width: 1000px) {

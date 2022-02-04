@@ -6,6 +6,7 @@ import { tablet, mobile } from "../responsive";
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 import New from "./New";
 import Loader from "./Loader";
+import Footer from "./Footer";
 
 const demoImage = "https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News";
 
@@ -52,6 +53,7 @@ const News = ({ simplified }) => {
                             ))}
                         </Container>
                     </PageContainer>
+                    <Footer />
                 </div>
             )}
 

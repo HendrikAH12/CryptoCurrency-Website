@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import News from "../components/News";
 import { Link } from "react-router-dom";
 import { tablet, mobile } from "../responsive";
+import Footer from "../components/Footer";
 
 const Container = styled.div`
     display: flex;
@@ -52,6 +53,7 @@ const Home = () => {
                 </Header>
                 <News simplified />
             </Container>
+            <Footer />
         </div>
     );
 }
