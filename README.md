@@ -6,4 +6,4 @@
 
 ## Deploy
 
-- O deploy foi feito na plataforma Netlify e pode ser acessado na url: https://naughty-johnson-38f41e.netlify.app
+- O deploy foi feito na plataforma Netlify e pode ser acessado na url: https://vigilant-mayer-69991d.netlify.app
