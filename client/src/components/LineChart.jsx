@@ -33,7 +33,7 @@ const LineChart = ({ coinHistory }) => {
         coinPrice.push(coinHistory?.data?.history[i].price);
     }
 
-    for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
+    for (let i = 0; i < coinHistory?.data?.history?.length; i += 2) {
         let timestamp = coinHistory?.data?.history[i].timestamp.toString();
 
         coinTimestamp.push(timestamp.substring(0, 4));
