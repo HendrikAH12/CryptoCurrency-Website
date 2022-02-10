@@ -6,4 +6,4 @@
 
 ## Deploy
 
-- O deploy foi feito na plataforma Netlify e pode ser acessado na url: https://vigilant-mayer-69991d.netlify.app
+- O deploy foi feito na plataforma Netlify e pode ser acessado na url: https://priceless-edison-1f0746.netlify.app
