@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import moment from "moment";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -29,14 +30,12 @@ const LineChart = ({ coinHistory }) => {
     const coinPrice = [];
     const coinTimestamp = [];
 
-    for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
+    for (let i = coinHistory?.data?.history?.length - 1; i > 0; i -= 1) {
         coinPrice.push(coinHistory?.data?.history[i].price);
     }
 
-    for (let i = 0; i < coinHistory?.data?.history?.length; i += 2) {
-        let timestamp = coinHistory?.data?.history[i].timestamp.toString();
-
-        coinTimestamp.push(timestamp.substring(0, 4));
+    for (let i = coinHistory?.data?.history?.length - 1; i > 0; i -= 1) {
+        coinTimestamp.push(moment.unix(coinHistory?.data?.history[i].timestamp).format("DD/MM"));
     }
 
     const data = {
