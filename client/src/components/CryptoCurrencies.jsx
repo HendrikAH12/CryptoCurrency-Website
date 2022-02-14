@@ -1,33 +1,46 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import CryptoCurrency from "./CryptoCurrency";
+import Grid from '@mui/material/Grid';
 import millify from "millify";
-import Navbar from "./Navbar";
-import { tablet, mobile } from "../responsive";
+import Loader from "./Loader";
 
 import { useGetCryptosQuery } from "../services/cryptoApi";
-import Loader from "./Loader";
-import Footer from "./Footer";
 
-const PageContainer = styled.div`
+const TitleContainer = styled.div`
     display: flex;
-    flex-direction: column;
-    margin: 0 15%;
-    padding: 16px 0;
-    gap: 16px;
-
-    ${tablet({ margin: "0 10%" })};
-    ${mobile({ margin: "0 16px" })};
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px
 `;
 
-const Container = styled.div`
+const Title = styled.h3`
+    font-size: 20px;
+    font-weight: 400;
+`;
+
+const Img = styled.img`
+    width: 30px;
+    height: 30px;
+`;
+
+const Content = styled.div`
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+    flex-direction: column;
+    gap: 8px;
+`;
+
+const InfoContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+
+const SubTitle = styled.h4`
+    font-weight: 400;
 `;
 
 const Cryptocurrencies = ({ simplified }) => {
-    const count = simplified ? 10 : 50;
+    const count = simplified ? 9 : 30;
     const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
     const [cryptos, setCryptos] = useState();
 
@@ -38,45 +51,41 @@ const Cryptocurrencies = ({ simplified }) => {
     if (isFetching) return <Loader />;
 
     return (
-        <>
-            {!simplified && (
-                <div style={{ backgroundColor: "#EEEEEE" }}>
-                    <Navbar />
-                    <PageContainer>
-                        <Container>
-                            {cryptos?.map((currency) => (
-                                <CryptoCurrency 
-                                    key={currency.uuid}
-                                    id={currency.uuid}
-                                    title={`${currency.rank}. ${currency.name}`}
-                                    img={currency.iconUrl}
-                                    price={millify(currency.price)}
-                                    marketCap={millify(currency.marketCap)}
-                                    change={millify(currency.change)}
-                                />
-                            ))}
-                        </Container>
-                    </PageContainer>
-                    <Footer />
-                </div>
-            )}
+        <Grid container spacing={2} style={{marginTop: 0}}>
+            {cryptos?.map((currency) => (
+                <Grid item lg={4} md={6} sm={12} xs={12} key={currency.uuid}>
+                    <div style={{backgroundColor: "#272727", padding: "12px"}}>
+                        <Link to={`/crypto/${currency.uuid}`} style={{textDecoration: "none", color: "white"}}>
+                            <TitleContainer>
+                                <Title>{`${currency.rank}. ${currency.name}`}</Title>
 
-            {simplified && (
-                <Container>
-                    {cryptos?.map((currency) => (
-                        <CryptoCurrency 
-                            key={currency.uuid}
-                            id={currency.uuid}
-                            title={`${currency.rank}. ${currency.name}`}
-                            img={currency.iconUrl}
-                            price={millify(currency.price)}
-                            marketCap={millify(currency.marketCap)}
-                            change={millify(currency.change)}
-                        />
-                    ))}
-                </Container>
-            )}
-        </>
+                                <Img src={currency.iconUrl} alt="" />
+                            </TitleContainer>
+
+                            <Content>
+                                <InfoContainer>
+                                    <SubTitle>Price</SubTitle>
+
+                                    {millify(currency.price)} $
+                                </InfoContainer>
+
+                                <InfoContainer>
+                                    <SubTitle>Market Cap</SubTitle>
+
+                                    {millify(currency.marketCap)} $
+                                </InfoContainer>
+
+                                <InfoContainer>
+                                    <SubTitle>Daily Change</SubTitle>
+
+                                    {millify(currency.change)} %
+                                </InfoContainer>
+                            </Content>
+                        </Link>
+                    </div>
+                </Grid>
+            ))}
+        </Grid>
     )
 };
 

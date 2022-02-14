@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { mobile } from "../responsive";
 
 const BounceAnimation = keyframes`
     0% { background-color: black }
@@ -9,10 +10,12 @@ const BounceAnimation = keyframes`
 const DotWrapper = styled.div`
     display: flex;
     position: absolute;
-    top: 53%;
+    top: 50%;
     left: 50%;
     margin-top: -50px;
-    margin-left: -50px;
+    margin-left: 70px;
+
+    ${mobile({ marginLeft: "-50px" })};
 `;
 
 const Dot = styled.div`

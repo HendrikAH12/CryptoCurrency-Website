@@ -27,7 +27,7 @@ import {
 import logo from "../assets/Logo.svg";
 import avatar from "../assets/Avatar.png";
 import { mobile } from '../responsive';
-import CryptoDetails from '../components/CryptoDetails';
+import News from '../components/News';
 
 const drawerWidth = 240;
 
@@ -81,7 +81,7 @@ const Avatar = styled.img`
     cursor: pointer;
 `;
 
-const CryptoDetailsPage = () => {
+const NewsPage = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => {
@@ -217,10 +217,11 @@ const CryptoDetailsPage = () => {
             >
                 <Toolbar />
                 
-                <CryptoDetails />
+                <Typography variant='h5'>Latest Crypto News</Typography>
+                <News />
             </Box>
         </Box>
     );
 }
 
-export default CryptoDetailsPage;
+export default NewsPage;

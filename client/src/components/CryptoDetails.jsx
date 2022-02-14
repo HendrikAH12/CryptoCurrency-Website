@@ -1,138 +1,118 @@
-import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
+import {
+    Box,
+    Grid,
+    Typography
+} from "@mui/material";
 import millify from "millify";
 import LineChart from "./LineChart";
-import Loader from "../components/Loader";
-import { desktop3 } from "../responsive";
+import Loader from "./Loader";
 
-import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from "../services/cryptoApi";
+import { useGetCryptoDetailsQuery } from "../services/cryptoApi";
 
-const Container = styled.div`
+const TitleContainer = styled.div`
     display: flex;
-    flex-direction: column;
-    gap: 16px;
-`;
-
-const StatsContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-`;
-
-const StatsSubContainer = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 12px;
-    min-width: 280px;
-    background-color: #E1E1E1;
-    padding: 16px;
-    border-radius: 8px;
-    max-width: calc(30% - 10px);
-
-    ${desktop3({ maxWidth: "calc(100%)" })};
-`;
-
-const Title = styled.h2`
-
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
 `;
 
 const InfoContainer = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: #272727;
+    padding: 12px;
 `;
 
-const SubTitle = styled.h3`
-    
+const SubTitle = styled.h4`
+    font-weight: 400;
 `;
 
-const CryptoCurrencyDetails = () => {
+const CryptoDetails = () => {
     const { id } = useParams();
-    const timePeriod = "7d";
     const { data, isFetching } = useGetCryptoDetailsQuery(id);
-    const { data: coinHistory } = useGetCryptoHistoryQuery({ id, timePeriod });
     const cryptoDetails = data?.data?.coin;
 
-    if (isFetching || !coinHistory?.data) return <Loader />;
+    if (isFetching) return <Loader />;
 
     return (
-        <Container>
-            <InfoContainer>
-                <Title>{cryptoDetails.name} ({cryptoDetails.symbol})</Title>
+        <Box>
+            <TitleContainer>
+                <Typography variant='h5'>{cryptoDetails.name} ({cryptoDetails.symbol})</Typography>
+                <Typography variant='h5'>Last 7 days</Typography>
+            </TitleContainer>
+            <LineChart />
 
-                <Title>Last 7 days</Title>
-            </InfoContainer>
-
-            <LineChart coinHistory={coinHistory} />
-
-            <Title>Stats</Title>
-            <StatsContainer>
-                <StatsSubContainer>
+            <Typography variant='h5' style={{marginTop: "16px"}}>Stats</Typography>
+            <Grid container spacing={2} style={{marginTop: 0}}>
+                <Grid item lg={3} md={4} sm={12} xs={12}>
                     <InfoContainer>
                         <SubTitle>Rank</SubTitle>
                         
                         {cryptoDetails?.rank}
                     </InfoContainer>
-                </StatsSubContainer>
+                </Grid>
 
-                <StatsSubContainer>
+                <Grid item lg={3} md={4} sm={12} xs={12}>
                     <InfoContainer>
                         <SubTitle>Price</SubTitle>
                         
                         {millify(cryptoDetails?.price)} $
                     </InfoContainer>
-                </StatsSubContainer>
+                </Grid>
 
-                <StatsSubContainer>
+                <Grid item lg={3} md={4} sm={12} xs={12}>
                     <InfoContainer>
                         <SubTitle>Market Cap</SubTitle>
                         
                         {millify(cryptoDetails?.marketCap)} $
                     </InfoContainer>
-                </StatsSubContainer>
+                </Grid>
 
-                <StatsSubContainer>
+                <Grid item lg={3} md={4} sm={12} xs={12}>
                     <InfoContainer>
                         <SubTitle>Daily Change</SubTitle>
                         
                         {millify(cryptoDetails?.change)} %
                     </InfoContainer>
-                </StatsSubContainer>
+                </Grid>
 
-                <StatsSubContainer>
+                <Grid item lg={3} md={4} sm={12} xs={12}>
                     <InfoContainer>
                         <SubTitle>All Time High</SubTitle>
                         
                         {millify(cryptoDetails?.allTimeHigh?.price)} $
                     </InfoContainer>
-                </StatsSubContainer>
+                </Grid>
 
-                <StatsSubContainer>
+                <Grid item lg={3} md={4} sm={12} xs={12}>
                     <InfoContainer>
                         <SubTitle>N° Markets</SubTitle>
                         
                         {cryptoDetails?.numberOfMarkets}
                     </InfoContainer>
-                </StatsSubContainer>
+                </Grid>
 
-                <StatsSubContainer>
+                <Grid item lg={3} md={4} sm={12} xs={12}>
                     <InfoContainer>
                         <SubTitle>N° Exchanges</SubTitle>
                         
                         {cryptoDetails?.numberOfExchanges}
                     </InfoContainer>
-                </StatsSubContainer>
+                </Grid>
 
-                <StatsSubContainer>
+                <Grid item lg={3} md={4} sm={12} xs={12}>
                     <InfoContainer>
                         <SubTitle>Total Supply</SubTitle>
                         
                         {millify(cryptoDetails?.supply?.total)}
                     </InfoContainer>
-                </StatsSubContainer>
-            </StatsContainer>
-        </Container>
+                </Grid>
+            </Grid>
+        </Box>
     )
 };
 
-export default CryptoCurrencyDetails;
+export default CryptoDetails;

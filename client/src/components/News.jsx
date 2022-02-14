@@ -1,31 +1,57 @@
 import styled from "styled-components";
+import Grid from '@mui/material/Grid';
 import moment from "moment";
-import Navbar from "./Navbar";
-import { tablet, mobile } from "../responsive";
+import Loader from "./Loader";
 
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
-import New from "./New";
-import Loader from "./Loader";
-import Footer from "./Footer";
 
 const demoImage = "https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News";
 
-const PageContainer = styled.div`
+const Container = styled.a`
     display: flex;
     flex-direction: column;
-    margin: 0 15%;
-    padding: 16px 0;
+    justify-content: space-between;
+    text-decoration: none;
+    color: white;
     gap: 16px;
-
-    ${tablet({ margin: "0 10%" })};
-    ${mobile({ margin: "0 16px" })};
+    background-color: #272727;
+    padding: 12px;
+    min-height: 260px;
 `;
 
-const Container = styled.div`
+const TitleContainer = styled.div`
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
 `;
+
+const Title = styled.h3`
+    font-weight: 400;
+    margin-right: 16px;
+`;
+
+const Img = styled.img`
+    width: 80px;
+    height: 80px;
+`;
+
+const InfoContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const AvatarContainer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+const Avatar = styled.img`
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+`;
+
 
 const News = ({ simplified }) => {
     const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory: "Cryptocurrency", count: simplified ? 6 : 12 });
@@ -33,47 +59,30 @@ const News = ({ simplified }) => {
     if (!cryptoNews?.value) return <Loader />;
 
     return (
-        <>
-            {!simplified && (
-                <div style={{ backgroundColor: "#EEEEEE" }}>
-                    <Navbar />
-                    <PageContainer>
-                        <Container>
-                            {cryptoNews.value.map((news, i) => (
-                                <New 
-                                    key={i}
-                                    url={news.url}
-                                    title={news.name}
-                                    img={news?.image?.thumbnail?.contentUrl || demoImage}
-                                    content={news.description.length > 200 ? `${news.description.substring(0, 200)}...` : news.description}
-                                    avatar={news.provider[0]?.image?.thumbnail?.contentUrl || demoImage}
-                                    providerName={news.provider[0]?.name}
-                                    datePublished={moment(news.datePublished).startOf('ss').fromNow()}
-                                />
-                            ))}
-                        </Container>
-                    </PageContainer>
-                    <Footer />
-                </div>
-            )}
+        <Grid container spacing={2} style={{marginTop: 0}}>
+            {cryptoNews.value.map((news, i) => (
+                <Grid item lg={4} md={6} sm={12} xs={12} key={i}>
+                    <Container href={news.url} target="_blank">
+                        <TitleContainer>
+                            <Title>{news.name}</Title>
 
-            {simplified && (
-                <Container>
-                    {cryptoNews.value.map((news, i) => (
-                        <New 
-                            key={i}
-                            url={news.url}
-                            title={news.name}
-                            img={news?.image?.thumbnail?.contentUrl || demoImage}
-                            content={news.description.length > 200 ? `${news.description.substring(0, 200)}...` : news.description}
-                            avatar={news.provider[0]?.image?.thumbnail?.contentUrl || demoImage}
-                            providerName={news.provider[0]?.name}
-                            datePublished={moment(news.datePublished).startOf('ss').fromNow()}
-                        />
-                    ))}
-                </Container>
-            )}
-        </>
+                            <Img src={news?.image?.thumbnail?.contentUrl || demoImage} alt="" />
+                        </TitleContainer>
+
+                        <p>{news.description.length > 150 ? `${news.description.substring(0, 150)}...` : news.description}</p>
+
+                        <InfoContainer>
+                            <AvatarContainer>
+                                <Avatar src={news.provider[0]?.image?.thumbnail?.contentUrl || demoImage} alt="" />
+                                {news.provider[0]?.name}
+                            </AvatarContainer>
+
+                            {moment(news.datePublished).startOf('ss').fromNow()}
+                        </InfoContainer>
+                    </Container>
+                </Grid>
+            ))}
+        </Grid>
     )
 };
 
