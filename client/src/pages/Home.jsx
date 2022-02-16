@@ -217,8 +217,7 @@ const HomePage = () => {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                
-                <Typography variant='h5'>Top 9 Cryptocurrencies</Typography>
+                <Typography variant='h5'>Top 12 Cryptocurrencies</Typography>
                 <Cryptocurrencies simplified />
                 <Typography variant='h5' style={{marginTop: "16px"}}>Latest Crypto News</Typography>
                 <News simplified />

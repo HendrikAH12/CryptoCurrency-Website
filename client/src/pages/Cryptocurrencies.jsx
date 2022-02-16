@@ -217,7 +217,7 @@ const CryptocurrenciesPage = () => {
             >
                 <Toolbar />
                 
-                <Typography variant='h5'>Top 30 Cryptocurrencies</Typography>
+                <Typography variant='h5'>Cryptocurrencies</Typography>
                 <Cryptocurrencies />
             </Box>
         </Box>

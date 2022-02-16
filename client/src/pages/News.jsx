@@ -217,7 +217,7 @@ const NewsPage = () => {
             >
                 <Toolbar />
                 
-                <Typography variant='h5'>Latest Crypto News</Typography>
+                <Typography variant='h5'>News</Typography>
                 <News />
             </Box>
         </Box>

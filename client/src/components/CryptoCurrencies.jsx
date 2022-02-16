@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Grid from '@mui/material/Grid';
+import {
+    Grid,
+    TextField
+} from '@mui/material';
 import millify from "millify";
 import Loader from "./Loader";
 
@@ -40,52 +43,65 @@ const SubTitle = styled.h4`
 `;
 
 const Cryptocurrencies = ({ simplified }) => {
-    const count = simplified ? 9 : 30;
+    const count = simplified ? 12 : 60;
     const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
     const [cryptos, setCryptos] = useState();
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         setCryptos(cryptosList?.data?.coins);
-    }, [cryptosList]);
+
+        const filteredData = cryptosList?.data?.coins.filter((item) => item.name.toLowerCase().includes(searchTerm));
+
+        setCryptos(filteredData);
+    }, [cryptosList, searchTerm]);
 
     if (isFetching) return <Loader />;
 
     return (
-        <Grid container spacing={2} style={{marginTop: 0}}>
-            {cryptos?.map((currency) => (
-                <Grid item lg={4} md={6} sm={12} xs={12} key={currency.uuid}>
-                    <div style={{backgroundColor: "#272727", padding: "12px"}}>
-                        <Link to={`/crypto/${currency.uuid}`} style={{textDecoration: "none", color: "white"}}>
-                            <TitleContainer>
-                                <Title>{`${currency.rank}. ${currency.name}`}</Title>
+        <>
+            {!simplified && 
+                <TextField id="outlined-basic" label="Search" variant="outlined" 
+                    style={{marginTop: "16px", width: "100%"}} 
+                    onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
+                /> 
+            }
+            <Grid container spacing={2} style={{marginTop: 0}}>
+                {cryptos?.map((currency) => (
+                    <Grid item lg={4} md={6} sm={12} xs={12} key={currency.uuid}>
+                        <div style={{backgroundColor: "#272727", padding: "12px"}}>
+                            <Link to={`/crypto/${currency.uuid}`} style={{textDecoration: "none", color: "white"}}>
+                                <TitleContainer>
+                                    <Title>{`${currency.rank}. ${currency.name}`}</Title>
 
-                                <Img src={currency.iconUrl} alt="" />
-                            </TitleContainer>
+                                    <Img src={currency.iconUrl} alt="" />
+                                </TitleContainer>
 
-                            <Content>
-                                <InfoContainer>
-                                    <SubTitle>Price</SubTitle>
+                                <Content>
+                                    <InfoContainer>
+                                        <SubTitle>Price</SubTitle>
 
-                                    {millify(currency.price)} $
-                                </InfoContainer>
+                                        {millify(currency.price)} $
+                                    </InfoContainer>
 
-                                <InfoContainer>
-                                    <SubTitle>Market Cap</SubTitle>
+                                    <InfoContainer>
+                                        <SubTitle>Market Cap</SubTitle>
 
-                                    {millify(currency.marketCap)} $
-                                </InfoContainer>
+                                        {millify(currency.marketCap)} $
+                                    </InfoContainer>
 
-                                <InfoContainer>
-                                    <SubTitle>Daily Change</SubTitle>
+                                    <InfoContainer>
+                                        <SubTitle>Daily Change</SubTitle>
 
-                                    {millify(currency.change)} %
-                                </InfoContainer>
-                            </Content>
-                        </Link>
-                    </div>
-                </Grid>
-            ))}
-        </Grid>
+                                        {millify(currency.change)} %
+                                    </InfoContainer>
+                                </Content>
+                            </Link>
+                        </div>
+                    </Grid>
+                ))}
+            </Grid>
+        </>
     )
 };
 

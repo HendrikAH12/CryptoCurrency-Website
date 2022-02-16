@@ -11,13 +11,6 @@ import Loader from "./Loader";
 
 import { useGetCryptoDetailsQuery } from "../services/cryptoApi";
 
-const TitleContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-`;
-
 const InfoContainer = styled.div`
     display: flex;
     justify-content: space-between;
@@ -39,10 +32,8 @@ const CryptoDetails = () => {
 
     return (
         <Box>
-            <TitleContainer>
-                <Typography variant='h5'>{cryptoDetails.name} ({cryptoDetails.symbol})</Typography>
-                <Typography variant='h5'>Last 7 days</Typography>
-            </TitleContainer>
+            <Typography variant='h5' style={{marginBottom: "16px"}}>{cryptoDetails.name} ({cryptoDetails.symbol})</Typography>  
+            
             <LineChart />
 
             <Typography variant='h5' style={{marginTop: "16px"}}>Stats</Typography>

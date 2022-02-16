@@ -5,12 +5,12 @@ import CryptocurrenciesPage from "./pages/Cryptocurrencies";
 import NewsPage from "./pages/News";
 import CryptoDetailsPage from "./pages/CryptoDetails";
 
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 function App() {
   const darkTheme = createTheme({
     palette: {
-      mode: 'dark',
+      mode: "dark",
     },
   });
 

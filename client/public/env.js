@@ -1,7 +1,7 @@
 window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
   "APPDATA": "C:\\Users\\Hendrik\\AppData\\Roaming",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_7532_ZLQDQWQVKWNHAZPD",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_7804_KVQQJVJUNIWXPVKC",
   "COLOR": "1",
   "COLORTERM": "truecolor",
   "CommonProgramFiles": "C:\\Program Files\\Common Files",
@@ -48,7 +48,7 @@ window.env = {
   "OneDrive": "C:\\Users\\Hendrik\\OneDrive",
   "ORIGINAL_XDG_CURRENT_DESKTOP": "undefined",
   "OS": "Windows_NT",
-  "Path": "C:\\Users\\Hendrik\\Documents\\GitHub\\CryptoCurrency-Website\\client\\node_modules\\.bin;C:\\Users\\Hendrik\\Documents\\GitHub\\CryptoCurrency-Website\\node_modules\\.bin;C:\\Users\\Hendrik\\Documents\\GitHub\\node_modules\\.bin;C:\\Users\\Hendrik\\Documents\\node_modules\\.bin;C:\\Users\\Hendrik\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\Users\\Hendrik\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Hendrik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Hendrik\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\Hendrik\\AppData\\Roaming\\npm",
+  "Path": "C:\\Users\\Hendrik\\Documents\\GitHub\\CryptoCurrency-Website\\client\\node_modules\\.bin;C:\\Users\\Hendrik\\Documents\\GitHub\\CryptoCurrency-Website\\node_modules\\.bin;C:\\Users\\Hendrik\\Documents\\GitHub\\node_modules\\.bin;C:\\Users\\Hendrik\\Documents\\node_modules\\.bin;C:\\Users\\Hendrik\\node_modules\\.bin;C:\\Users\\node_modules\\.bin;C:\\node_modules\\.bin;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\Users\\Hendrik\\AppData\\Local\\Programs\\Python\\Python39\\Scripts\\;C:\\Users\\Hendrik\\AppData\\Local\\Programs\\Python\\Python39\\;C:\\Users\\Hendrik\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Hendrik\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Hendrik\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\Hendrik\\AppData\\Roaming\\npm",
   "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL",
   "PROCESSOR_ARCHITECTURE": "AMD64",
   "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 167 Stepping 1, GenuineIntel",
