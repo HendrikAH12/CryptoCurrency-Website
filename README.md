@@ -6,4 +6,4 @@
 
 ## Deploy
 
-- O deploy foi feito na plataforma Netlify e pode ser acessado na url: https://reverent-galileo-4a51ad.netlify.app
+- O deploy foi feito na plataforma Netlify e pode ser acessado na url: https://gracious-mccarthy-a41042.netlify.app
