@@ -1,7 +1,8 @@
 window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
   "APPDATA": "C:\\Users\\Hendrik\\AppData\\Roaming",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_7804_KVQQJVJUNIWXPVKC",
+  "APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL": "true",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_10340_FAXGQBAVYXFKQCFW",
   "COLOR": "1",
   "COLORTERM": "truecolor",
   "CommonProgramFiles": "C:\\Program Files\\Common Files",
@@ -20,6 +21,7 @@ window.env = {
   "INIT_CWD": "C:\\Users\\Hendrik\\Documents\\GitHub\\CryptoCurrency-Website\\client",
   "LANG": "en_US.UTF-8",
   "LOCALAPPDATA": "C:\\Users\\Hendrik\\AppData\\Local",
+  "LOCAL_GIT_DIRECTORY": "C:\\Users\\Hendrik\\AppData\\Local\\GitHubDesktop\\app-2.9.8\\resources\\app\\git",
   "LOGONSERVER": "\\\\DESKTOP-F4USL5Q",
   "NODE": "C:\\Program Files\\nodejs\\node.exe",
   "NODE_EXE": "C:\\Program Files\\nodejs\\\\node.exe",
