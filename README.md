@@ -6,4 +6,4 @@
 
 ## Deploy
 
-- O deploy foi feito na plataforma Netlify e pode ser acessado na url: https://gracious-mccarthy-a41042.netlify.app
+- O deploy foi feito na plataforma Netlify e pode ser acessado na url: https://pensive-swanson-0b7e55.netlify.app
