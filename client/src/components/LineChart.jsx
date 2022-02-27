@@ -31,7 +31,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     background-color: #272727;
-    padding: 12px;
+    padding: 12px 12px 24px 12px;
 `;
 
 const LineChart = () => {
@@ -59,7 +59,7 @@ const LineChart = () => {
                 data: coinPrice,
                 backgroundColor: "black",
                 borderColor: "white",
-                pointRadius: 1.25,
+                pointRadius: 0,
             }
         ]
     };
@@ -107,7 +107,7 @@ const LineChart = () => {
                     ))}
                 </select>
             </div>
-            <Line data={data} options={options} style={{maxHeight: "650px"}}/>
+            <Line data={data} options={options} style={{maxHeight: "575px"}}/>
         </Container>
     )
 };

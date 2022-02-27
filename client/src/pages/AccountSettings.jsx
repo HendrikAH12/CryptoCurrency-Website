@@ -27,7 +27,7 @@ import {
 import logo from "../assets/Logo.svg";
 import avatar from "../assets/Avatar.png";
 import { mobile } from '../responsive';
-import Cryptocurrencies from '../components/Cryptocurrencies';
+import AccountSettings from '../components/AccountSettings';
 
 const drawerWidth = 240;
 
@@ -81,7 +81,7 @@ const Avatar = styled.img`
     cursor: pointer;
 `;
 
-const CryptocurrenciesPage = () => {
+const AccountSettingsPage = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => {
@@ -228,11 +228,10 @@ const CryptocurrenciesPage = () => {
             >
                 <Toolbar />
                 
-                <Typography variant='h5'>Cryptocurrencies</Typography>
-                <Cryptocurrencies />
+                <AccountSettings />
             </Box>
         </Box>
-    );
-}
+    )
+};
 
-export default CryptocurrenciesPage;
+export default AccountSettingsPage;

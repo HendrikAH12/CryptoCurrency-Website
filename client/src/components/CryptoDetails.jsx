@@ -38,7 +38,7 @@ const CryptoDetails = () => {
 
             <Typography variant='h5' style={{marginTop: "16px"}}>Stats</Typography>
             <Grid container spacing={2} style={{marginTop: 0}}>
-                <Grid item lg={3} md={4} sm={12} xs={12}>
+                <Grid item lg={3} md={4} sm={6} xs={12}>
                     <InfoContainer>
                         <SubTitle>Rank</SubTitle>
                         
@@ -46,7 +46,7 @@ const CryptoDetails = () => {
                     </InfoContainer>
                 </Grid>
 
-                <Grid item lg={3} md={4} sm={12} xs={12}>
+                <Grid item lg={3} md={4} sm={6} xs={12}>
                     <InfoContainer>
                         <SubTitle>Price</SubTitle>
                         
@@ -54,7 +54,7 @@ const CryptoDetails = () => {
                     </InfoContainer>
                 </Grid>
 
-                <Grid item lg={3} md={4} sm={12} xs={12}>
+                <Grid item lg={3} md={4} sm={6} xs={12}>
                     <InfoContainer>
                         <SubTitle>Market Cap</SubTitle>
                         
@@ -62,7 +62,7 @@ const CryptoDetails = () => {
                     </InfoContainer>
                 </Grid>
 
-                <Grid item lg={3} md={4} sm={12} xs={12}>
+                <Grid item lg={3} md={4} sm={6} xs={12}>
                     <InfoContainer>
                         <SubTitle>Daily Change</SubTitle>
                         
@@ -70,7 +70,7 @@ const CryptoDetails = () => {
                     </InfoContainer>
                 </Grid>
 
-                <Grid item lg={3} md={4} sm={12} xs={12}>
+                <Grid item lg={3} md={4} sm={6} xs={12}>
                     <InfoContainer>
                         <SubTitle>All Time High</SubTitle>
                         
@@ -78,7 +78,7 @@ const CryptoDetails = () => {
                     </InfoContainer>
                 </Grid>
 
-                <Grid item lg={3} md={4} sm={12} xs={12}>
+                <Grid item lg={3} md={4} sm={6} xs={12}>
                     <InfoContainer>
                         <SubTitle>N° Markets</SubTitle>
                         
@@ -86,7 +86,7 @@ const CryptoDetails = () => {
                     </InfoContainer>
                 </Grid>
 
-                <Grid item lg={3} md={4} sm={12} xs={12}>
+                <Grid item lg={3} md={4} sm={6} xs={12}>
                     <InfoContainer>
                         <SubTitle>N° Exchanges</SubTitle>
                         
@@ -94,7 +94,7 @@ const CryptoDetails = () => {
                     </InfoContainer>
                 </Grid>
 
-                <Grid item lg={3} md={4} sm={12} xs={12}>
+                <Grid item lg={3} md={4} sm={6} xs={12}>
                     <InfoContainer>
                         <SubTitle>Total Supply</SubTitle>
                         

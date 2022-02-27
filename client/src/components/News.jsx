@@ -16,7 +16,7 @@ const Container = styled.a`
     gap: 16px;
     background-color: #272727;
     padding: 12px;
-    min-height: 260px;
+    min-height: 260px
 `;
 
 const TitleContainer = styled.div`
@@ -54,17 +54,18 @@ const Avatar = styled.img`
 
 
 const News = ({ simplified }) => {
-    const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory: "Cryptocurrency", count: simplified ? 6 : 12 });
+    const count = simplified ? 6 : 12;
+    const { data: cryptoNews, isFetching } = useGetCryptoNewsQuery({ newsCategory: "Cryptocurrency", count: count });
     
-    if (!cryptoNews?.value) return <Loader />;
+    if (isFetching) return <Loader />;
 
     return (
         <Grid container spacing={2} style={{marginTop: 0}}>
             {cryptoNews.value.map((news, i) => (
-                <Grid item lg={4} md={6} sm={12} xs={12} key={i}>
+                <Grid item lg={4} md={6} sm={6} xs={12} key={i}>
                     <Container href={news.url} target="_blank">
                         <TitleContainer>
-                            <Title>{news.name}</Title>
+                            <Title>{news.name.length > 75 ? `${news.name.substring(0, 75)}...` : news.name}</Title>
 
                             <Img src={news?.image?.thumbnail?.contentUrl || demoImage} alt="" />
                         </TitleContainer>

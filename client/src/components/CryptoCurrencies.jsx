@@ -66,9 +66,10 @@ const Cryptocurrencies = ({ simplified }) => {
                     onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
                 /> 
             }
+            
             <Grid container spacing={2} style={{marginTop: 0}}>
                 {cryptos?.map((currency) => (
-                    <Grid item lg={4} md={6} sm={12} xs={12} key={currency.uuid}>
+                    <Grid item lg={4} md={6} sm={6} xs={12} key={currency.uuid}>
                         <div style={{backgroundColor: "#272727", padding: "12px"}}>
                             <Link to={`/crypto/${currency.uuid}`} style={{textDecoration: "none", color: "white"}}>
                                 <TitleContainer>

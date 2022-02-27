@@ -129,13 +129,15 @@ const NewsPage = () => {
                     </ListItem>
                 </Link>
 
-                <ListItem button>
-                    <ListItemIcon>
-                        <AccountCircle />
-                    </ListItemIcon>
+                <Link to="/account" style={{textDecoration: "none", color: "white"}}>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <AccountCircle />
+                        </ListItemIcon>
 
-                    <ListItemText primary={"Account"} />
-                </ListItem>
+                        <ListItemText primary={"Account"} />
+                    </ListItem>
+                </Link>
             </List>   
         </div>
     );
@@ -147,7 +149,7 @@ const NewsPage = () => {
             <AppBar
                 position="fixed"
                 sx={{
-                    width: { sm: `calc(100% - ${drawerWidth}px)` },
+                    width: { md: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}
             >
@@ -158,16 +160,25 @@ const NewsPage = () => {
 
                     <Container>
                         <Notifications style={{cursor: "pointer"}} />
-                        <Settings style={{cursor: "pointer"}} />
-                        <Avatar src={avatar} alt="" />
-                        <Logout style={{cursor: "pointer"}} />
+                        
+                        <Link to="/settings" style={{textDecoration: "none", color: "white", display: "flex"}}>
+                            <Settings style={{cursor: "pointer"}} />
+                        </Link>
+
+                        <Link to="/account" style={{textDecoration: "none", color: "white", display: "flex"}}>
+                            <Avatar src={avatar} alt="" />
+                        </Link>
+
+                        <Link to="/" style={{textDecoration: "none", color: "white", display: "flex"}}>
+                            <Logout style={{cursor: "pointer"}} />
+                        </Link>
 
                         <IconButton
                             color="inherit"
                             aria-label="open drawer"
                             edge="start"
                             onClick={handleDrawerToggle}
-                            sx={{ display: { sm: 'none' } }}
+                            sx={{ display: { md: 'none' } }}
                         >
                             <Menu />
                         </IconButton>
@@ -177,7 +188,7 @@ const NewsPage = () => {
 
             <Box
                 component="nav"
-                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+                sx={{ width: { md: drawerWidth }, flexShrink: { sm: 0 } }}
                 aria-label="mailbox folders"
             >
                 <Drawer
@@ -188,7 +199,7 @@ const NewsPage = () => {
                         keepMounted: true,
                     }}
                     sx={{
-                        display: { xs: 'block', sm: 'none' },
+                        display: { sm: 'block', md: 'none' },
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                 >
@@ -200,7 +211,7 @@ const NewsPage = () => {
                 <Drawer
                     variant="permanent"
                     sx={{
-                        display: { xs: 'none', sm: 'block' },
+                        display: { xs: 'none', md: 'block' },
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                     open
