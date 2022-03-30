@@ -55,7 +55,7 @@ const Account = () => {
         <Fragment>
             <Container maxWidth="lg" style={{padding: "0px"}}>
                 <Box>
-                    <Typography variant='h5'>Account</Typography>
+                    <Typography variant='h5'>Settings</Typography>
 
                     <Box style={{padding: "16px 0 0 0"}}>
                         <Tabs value={value} onChange={handleChange} textColor="white" indicatorColor="primary">

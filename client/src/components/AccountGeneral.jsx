@@ -49,7 +49,7 @@ const Right = styled.div`
     justify-content: center;
     flex-direction: column;
     background-color: #272727;
-    padding: 18px 20px;
+    padding: 16px;
 `;
 
 const ButtonContainer = styled.div`
