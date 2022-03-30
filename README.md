@@ -6,4 +6,4 @@
 
 ## Deploy
 
-- O deploy foi feito na plataforma Netlify e pode ser acessado na url: https://glittering-axolotl-e2e6bc.netlify.app
+- O deploy foi feito na plataforma Netlify e pode ser acessado na url: https://gorgeous-fenglisu-b9bbf7.netlify.app
